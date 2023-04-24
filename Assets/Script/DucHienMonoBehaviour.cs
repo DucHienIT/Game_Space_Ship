@@ -12,6 +12,7 @@ public class DucHienMonoBehaviour : MonoBehaviour
     protected virtual void Reset()
     {
         this.LoadComponents();
+        this.ResetValue();
     }
     protected virtual void Awake()
     {
@@ -19,6 +20,10 @@ public class DucHienMonoBehaviour : MonoBehaviour
     }
 
     protected virtual void LoadComponents()
+    {
+        
+    }
+    protected virtual void ResetValue()
     {
         
     }

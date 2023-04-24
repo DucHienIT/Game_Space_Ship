@@ -9,7 +9,7 @@ public abstract class Spawner : DucHienMonoBehaviour
     [SerializeField] protected List<Transform> poolObjects;
 
 
-   
+    
     protected override void LoadComponents()
     {
         this.LoadPrefabs();
