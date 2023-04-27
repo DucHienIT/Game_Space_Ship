@@ -11,4 +11,8 @@ public class ParentFly : DucHienMonoBehaviour
     {
         transform.parent.Translate(this.direction * this.moveSpeed * Time.deltaTime);
     }
+    protected virtual void OnEnable()
+    {
+        
+    }
 }

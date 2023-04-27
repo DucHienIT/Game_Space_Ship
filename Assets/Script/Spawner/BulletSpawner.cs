@@ -15,4 +15,5 @@ public class BulletSpawner : Spawner
         if(BulletSpawner.instance != null) Debug.LogError("There are more than one BulletSpawner in the scene!");
         BulletSpawner.instance = this;
     }
+
 }

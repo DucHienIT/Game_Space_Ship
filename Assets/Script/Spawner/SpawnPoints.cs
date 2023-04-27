@@ -16,7 +16,7 @@ public abstract class SpawnPoints : DucHienMonoBehaviour
         if(this.spawnPoints.Count > 0) return;
         foreach (Transform child in transform)
         {
-            child.position = this.SetRandomPosition();
+            child.position = this.SetRandomPoint();
             this.spawnPoints.Add(child);
         }
     }
@@ -25,9 +25,10 @@ public abstract class SpawnPoints : DucHienMonoBehaviour
         int randomIndex = Random.Range(0, this.spawnPoints.Count);
         return this.spawnPoints[randomIndex];
     }
-    protected virtual Vector3 SetRandomPosition()
+    protected virtual Vector3 SetRandomPoint()
     {
-        Vector3 randomPosition = new Vector3(Random.Range(-20f, 20), Random.Range(-10, 10f), Random.Range(0f, 1f));
-        return randomPosition;
+        Vector3 randomPoint = new Vector3(Random.Range(-20f, 20f), Random.Range(-5f, 5f), 0);
+        return randomPoint;
     }
+   
 }
