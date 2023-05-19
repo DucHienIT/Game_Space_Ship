@@ -8,6 +8,10 @@ public class DucHienMonoBehaviour : MonoBehaviour
     {
         this.LoadComponents();
     }
+    protected virtual void OnEnable()
+    {
+
+    }
 
     protected virtual void Reset()
     {
