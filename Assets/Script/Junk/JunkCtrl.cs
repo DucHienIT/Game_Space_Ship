@@ -18,6 +18,7 @@ public class JunkCtrl : DucHienMonoBehaviour
         base.LoadComponents();
         this.LoadModel();
         this.LoadDamageReceiver();
+        this.LoadJunkDespawn();
     }
     protected virtual void LoadModel()
     {

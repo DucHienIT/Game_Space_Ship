@@ -271,7 +271,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 339257915}
-  - component: {fileID: 339257916}
   m_Layer: 0
   m_Name: Prefabs
   m_TagString: Untagged
@@ -295,21 +294,6 @@ Transform:
   m_Father: {fileID: 2058979631}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &339257916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 339257914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4ae374ff2ad0424d80d961d8e20397d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  model: {fileID: 0}
-  damageReceiver: {fileID: 0}
-  junkDespawn: {fileID: 0}
 --- !u!1 &367515416
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,8 +517,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 530991934}
-  - component: {fileID: 530991933}
   - component: {fileID: 530991935}
+  - component: {fileID: 530991936}
   m_Layer: 0
   m_Name: JunkSpawnPoints
   m_TagString: Untagged
@@ -542,23 +526,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &530991933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 530991932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92a52f37ab81c714085bac33e4d0296a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoints:
-  - {fileID: 1705922034}
-  - {fileID: 1042365033}
-  - {fileID: 1082125378}
-  - {fileID: 438349479}
 --- !u!4 &530991934
 Transform:
   m_ObjectHideFlags: 0
@@ -592,6 +559,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1927387187}
   speed: 7
+--- !u!114 &530991936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530991932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee5214e84475df47bbc3e90908b478d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints:
+  - {fileID: 1705922034}
+  - {fileID: 1042365033}
+  - {fileID: 1082125378}
+  - {fileID: 438349479}
 --- !u!1 &562685393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,9 +1541,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2058979631}
-  - component: {fileID: 2058979632}
   - component: {fileID: 2058979634}
   - component: {fileID: 2058979633}
+  - component: {fileID: 2058979632}
   m_Layer: 0
   m_Name: JunkSpawner
   m_TagString: Untagged
@@ -1593,13 +1577,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2058979629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5b1a24da95d0764796080eeceefeeea, type: 3}
+  m_Script: {fileID: 11500000, guid: d20d6f177d468e149b6005c4be23984e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holder: {fileID: 1232806039}
-  prefabs:
-  - {fileID: 485825348}
-  poolObjects: []
+  junkSpawnCtrl: {fileID: 2058979634}
+  junkSpawnDelay: 1
+  junkSpawnTimer: 0
+  junkSpawnLimit: 9
 --- !u!114 &2058979633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1609,11 +1593,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2058979629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b0549f9b9a9eb74ba9e8f561d455c5b, type: 3}
+  m_Script: {fileID: 11500000, guid: c5b1a24da95d0764796080eeceefeeea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  junkSpawner: {fileID: 2058979632}
-  junkSpawnPoints: {fileID: 530991933}
+  holder: {fileID: 1232806039}
+  prefabs:
+  - {fileID: 485825348}
+  poolObjects: []
 --- !u!114 &2058979634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1623,10 +1609,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2058979629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d20d6f177d468e149b6005c4be23984e, type: 3}
+  m_Script: {fileID: 11500000, guid: b9bf5df52a3ae374983ba441a6230cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  junkCtrl: {fileID: 2058979633}
+  junkSpawner: {fileID: 2058979633}
+  junkSpawnPoints: {fileID: 530991936}
 --- !u!1 &2064322311
 GameObject:
   m_ObjectHideFlags: 0
