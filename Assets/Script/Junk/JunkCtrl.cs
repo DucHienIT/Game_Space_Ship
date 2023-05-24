@@ -13,18 +13,29 @@ public class JunkCtrl : DucHienMonoBehaviour
     [SerializeField] protected JunkDespawn junkDespawn;
     public JunkDespawn JunkDespawn { get => junkDespawn; }
 
+
+    [SerializeField] protected JunkSO junkSO;
+    public JunkSO JunkSO { get => junkSO; }
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadModel();
         this.LoadDamageReceiver();
         this.LoadJunkDespawn();
+        this.LoadJunkSO();
     }
     protected virtual void LoadModel()
     {
         if (this.model != null) return;
         this.model = transform.Find("Model");
         Debug.Log("LoadModel: " + this.model);
+    }
+    protected virtual void LoadJunkSO()
+    {
+        if (this.JunkSO != null) return;
+        string resPath = "Junk/" + transform.name;
+        this.junkSO = Resources.Load<JunkSO>(resPath);
+        Debug.LogWarning(transform.name + ": LoadJunkSO" + resPath, gameObject);
     }
     protected virtual void LoadDamageReceiver()
     {

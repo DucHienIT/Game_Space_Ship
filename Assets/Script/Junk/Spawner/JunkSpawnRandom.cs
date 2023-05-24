@@ -9,7 +9,7 @@ public class JunkSpawnRandom : DucHienMonoBehaviour
     [SerializeField] protected JunkSpawnCtrl junkSpawnCtrl;
     [SerializeField] protected float junkSpawnDelay = 1f;
     [SerializeField] protected float junkSpawnTimer = 0f;
-    [SerializeField] protected float junkSpawnLimit = 9f;
+    [SerializeField] protected int junkSpawnLimit = 9;
 
 
     protected override void LoadComponents()
@@ -40,16 +40,18 @@ public class JunkSpawnRandom : DucHienMonoBehaviour
         if (this.junkSpawnTimer < this.junkSpawnDelay) return;
         this.junkSpawnTimer = 0f;
 
+        Transform prefab = this.junkSpawnCtrl.JunkSpawner.RandomPrefab();
+
 
         Transform randomPoint = this.junkSpawnCtrl.JunkSpawnPoints.GetRandomPoint();
         Vector3 pos = randomPoint.position;
-        Transform obj = this.junkSpawnCtrl.JunkSpawner.Spawn(JunkSpawner.meteorOne, pos, transform.rotation);
+        Transform obj = this.junkSpawnCtrl.JunkSpawner.Spawn(prefab, pos, transform.rotation);
         obj.gameObject.SetActive(true);
     }
     protected virtual bool RandomReachLimit()
     {
-        //int currentJunk = this.junkSpawnCtrl.JunkSpawner.Spa
+        int currentJunk = this.junkSpawnCtrl.JunkSpawner.SpawnedCount;
 
-        return false;
+        return currentJunk >= this.junkSpawnLimit;
     }    
 }

@@ -8,6 +8,11 @@ public abstract class Spawner : DucHienMonoBehaviour
     [SerializeField] protected List<Transform> prefabs;
     [SerializeField] protected List<Transform> poolObjects;
 
+    [SerializeField] protected int spawnedCount = 0;
+
+    public int SpawnedCount { get { return spawnedCount; } }
+
+
 
     
     protected override void LoadComponents()
@@ -49,10 +54,17 @@ public abstract class Spawner : DucHienMonoBehaviour
             Debug.LogError("Prefab " + prefabName + " not found!");
             return null;
         }
+        
+        return this.Spawn(prefab, position, rotation);
+    }public virtual Transform Spawn(Transform prefab, Vector3 position, Quaternion rotation)
+    {
+
         Transform newPrefab = this.GetObjectFromPool(prefab);
         newPrefab.SetPositionAndRotation(position, rotation);
 
         newPrefab.parent = this.holder;
+
+        this.spawnedCount++;
         return newPrefab;
     }
     protected virtual Transform GetObjectFromPool(Transform prefab)
@@ -74,6 +86,7 @@ public abstract class Spawner : DucHienMonoBehaviour
     {
         this.poolObjects.Add(prefab);
         prefab.gameObject.SetActive(false);
+        this.spawnedCount--;
 
     }
 
@@ -85,4 +98,9 @@ public abstract class Spawner : DucHienMonoBehaviour
         }
         return null;
     }
+    public virtual Transform RandomPrefab()
+    {
+        int rand = Random.Range(0, this.prefabs.Count);
+        return this.prefabs[rand];
+    }    
 }
