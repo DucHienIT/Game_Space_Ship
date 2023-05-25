@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class DespawnByTime : Despawn
 {
-    [SerializeField] protected float timeLimit = 10f;
-    [SerializeField] protected float time = 0f;
+    [SerializeField] protected float delay = 2f;
+    [SerializeField] protected float timer = 0f;
 
-    protected override void LoadComponents()
+    protected override void OnEnable()
     {
-        this.LoadTime();
+        base.OnEnable();
+        this.ResetTimer();
+
     }
-    protected virtual void LoadTime()
+    protected virtual void ResetTimer()
     {
-        this.time = 0f;
+        this.timer = 0f;
     }
 
     protected override bool CanDespawn()
     {
-        this.time += Time.deltaTime;
-        if(this.time > this.timeLimit) return true;
+        this.timer += Time.deltaTime;
+        if(this.timer > this.delay) return true;
         return false;
     }
 }

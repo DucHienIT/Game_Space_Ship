@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class DamageReceiver : DucHienMonoBehaviour
+public abstract class DamageReceiver : DucHienMonoBehaviour
 {
     [Header("Damage Receiver")]
     [SerializeField] protected SphereCollider sphereCollider;
@@ -60,9 +60,6 @@ public class DamageReceiver : DucHienMonoBehaviour
     {
         return this.hp <= 0;
     }
-    
-    protected virtual void OnDead()
-    {
 
-    }
+    protected abstract void OnDead();
 }

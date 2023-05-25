@@ -23,6 +23,18 @@ public class JunkDamageReceiver : DamageReceiver
     protected override void OnDead()
     {
         this.junkCtrl.JunkDespawn.DespawnObject();
+        this.OnDeadFX();
+    }
+    protected virtual void OnDeadFX()
+    {
+        string fxName = this.GetOnDeadFXName();
+        Transform fxOnDead = FXSpawner.Instance.Spawn(fxName, transform.position, transform.rotation);
+        fxOnDead.gameObject.SetActive(true);
+
+    }    
+    protected virtual string GetOnDeadFXName()
+    {
+        return FXSpawner.smokeOne;
     }
     public override void Reborn()
     {
