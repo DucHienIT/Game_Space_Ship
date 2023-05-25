@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Meteor_01
   m_EditorClassIdentifier: 
   junkName: Junk
-  hpMax: 20
+  hpMax: 10
