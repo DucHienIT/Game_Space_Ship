@@ -31,11 +31,13 @@ public class JunkDamageReceiver : DamageReceiver
         Transform fxOnDead = FXSpawner.Instance.Spawn(fxName, transform.position, transform.rotation);
         fxOnDead.gameObject.SetActive(true);
 
-    }    
+    }
+    
     protected virtual string GetOnDeadFXName()
     {
         return FXSpawner.smokeOne;
     }
+
     public override void Reborn()
     {
         this.maxHp = this.junkCtrl.JunkSO.hpMax;

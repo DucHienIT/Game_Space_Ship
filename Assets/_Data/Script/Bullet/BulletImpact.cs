@@ -34,5 +34,14 @@ public class BulletImpact : BulletAbstract
     protected virtual void OnTriggerEnter(Collider other)
     {
         this.BulletCtrl.DamageSender.Send(other.transform);
+        this.OnImpactFX();
+    }
+
+    protected virtual void OnImpactFX()
+    {
+        string fxName = FXSpawner.smokeTwo;
+        Transform fxOnDead = FXSpawner.Instance.Spawn(fxName, transform.position, transform.rotation);
+        fxOnDead.gameObject.SetActive(true);
+
     }
 }
