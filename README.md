@@ -23,3 +23,6 @@ This game was developed by Nguyen Duc Hien - DucHienIT.
 ## License
 
 ## Screenshots
+
+![z4381329203238_36fb84c728e415893ec65faeab6b8a04](https://github.com/DucHienIT/Game_Space_Ship/assets/88640081/5e833163-83ab-40b0-a8cf-399a920801c4)
+![z4381329207602_4758a8238ed37e150d196f3a92c148a1](https://github.com/DucHienIT/Game_Space_Ship/assets/88640081/eec70f6a-ca88-4457-a304-dbe32490e04d)
